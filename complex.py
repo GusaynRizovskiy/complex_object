@@ -93,7 +93,21 @@ class Ui_mainn_windoww(object):
         self.pushButton_2.setText(_translate("mainn_windoww", "Дальше"))
         self.label.setText(_translate("mainn_windoww", "Тест по CompexObject and ComplexSubject"))
         self.label_question.setText(_translate("mainn_windoww", "Вопрос:"))
-
+    def function(self):
+        with open("C:\\Temp\\kaka.json","r", encoding="utf-8") as my_file:
+            self.data = json.load(my_file)
+        self.label.setText(self.data["вопросы"][self.k]["Вариант ответа 1"])
+        self.label_2.setText(self.data["вопросы"][self.k]["Вариант ответа 1"])
+        self.label_3.setText(self.data["вопросы"][self.k]["Вариант ответа 1"])
+        self.label_4.setText(self.data["вопросы"][self.k]["Правильный ответ"])
+        self.k+=1
+        self.pushButton.clicked.connect(self.nextt)
+    def nextt(self):
+        self.label.setText(self.data["вопросы"][self.k]["Вариант ответа 1"])
+        self.label_2.setText(self.data["вопросы"][self.k]["Вариант ответа 1"])
+        self.label_3.setText(self.data["вопросы"][self.k]["Вариант ответа 1"])
+        self.label_4.setText(self.data["вопросы"][self.k]["Правильный ответ"])
+        self.k +=1
 
 if __name__ == "__main__":
     import sys
